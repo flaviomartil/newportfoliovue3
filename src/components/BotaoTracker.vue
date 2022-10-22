@@ -1,26 +1,36 @@
 <template>
-  <button class="button" @click="finalizar" :disabled="!cronometroRodando">
-      <span class="icon">
-        <i class="fas fa-stop"> </i>
-      </span>
-    <span>stop</span>
+  <button class="button" @click="clicado" :disabled="desabilitado">
+    <span class="icon">
+      <i :class="iconeTracker"> </i>
+    </span>
+    <span>{{ textoBtn }}</span>
   </button>
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
-name: 'Botao',
-props: {
-  disabled: {
-    type: Boolean,
-    default: false
+  name: "BotaoTracker",
+  emits: ["clicado"],
+  props: {
+    desabilitado: {
+      type: Boolean,
+      default: false,
+    },
+    iconeTracker: {
+      type: String,
+      default: "",
+    },
+    textoBtn: {
+      type: String,
+      default: "",
+    },
   },
-  icone: {
-    type: String,
-    default: ''
+  methods: {
+    clicado(): void {
+      this.$emit("clicado");
+    },
   },
-},
 });
 </script>
