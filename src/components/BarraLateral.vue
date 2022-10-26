@@ -1,5 +1,6 @@
 <template>
-  <header>
+
+  <header class="menu">
     <h1>
       <img src="../assets/logo.png" alt="" />
     </h1>
@@ -58,10 +59,11 @@ export default defineComponent({
 <style scoped>
 header {
   padding: 1rem;
-  background: #0d3b66;
   width: 100%;
   height: 100vh;
   text-align: center;
+  color: var(--texto-primario);
+  background-color: var(--barra-lateral);
 }
 @media only screen and (max-width: 768px) {
   header {
@@ -73,10 +75,12 @@ header {
   margin: 8px 0;
 }
 .link {
-  color: #fff;
+  color: var(--texto-primario);
+  background-color: var(--barra-lateral);
 }
 .link:hover {
-  color: #FAF0CA;
+  color: var(--texto-primario);
+  background-color: var(--barra-lateral);
 }
 .link.router-link-active {
   color: #FAF0CA;

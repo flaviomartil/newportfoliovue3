@@ -55,5 +55,29 @@ export default defineComponent({
       store
     };
   },
+
 });
 </script>
+
+<style>
+.projetos {
+  color: var(--texto-primario);
+  background-color: var(--bg-primario);
+}
+.title {
+  color: var(--texto-primario);
+  background-color: var(--bg-primario);
+}
+.table thead td, .table thead th {
+  color: var(--texto-primario);
+  background-color: var(--bg-primario);
+}
+.table {
+  color: var(--texto-primario);
+  background-color: var(--bg-primario);
+}
+.label {
+  color: var(--texto-primario);
+  background-color: var(--bg-primario);
+}
+</style>
