@@ -1,182 +1,267 @@
 <template>
-  <div id="resume" class="resume segments">
+  <div id="resume" class="section">
     <div class="container">
-      <div class="box-content">
-        <div class="section-title color-g">
-          <h3>Minha experiência</h3>
+      <div class="box content">
+        <div class="section-title has-text-centered">
+          <h3 class="title is-3">My Resume</h3>
         </div>
+        <carousel :autoplay="true" :nav="false" :dots="false" dots-container:=".owl-dots" :items="1">
+
+          <!-- Experience Section -->
           <div class="content">
-            <!-- my experience -->
             <div class="columns">
-              <div class="column is-6">
+              <div class="column is-half">
                 <div class="content-left">
-                  <div class="title-resume">
-                    <h3>Experiência</h3>
-                    <h2>Mais de 8 anos como <span>Desenvolvedor</span></h2>
+                  <div class="title is-4">
+                    <h3 class="title is-4">Experience</h3>
+                    <h2>More than 6 years experience as a <span>Designer</span></h2>
                   </div>
                 </div>
               </div>
-              <div class="column is-6">
-                <div class="content-right">
+              <div class="column is-half">
+                <div class="timeline-content">
                   <ul class="timeline">
                     <li>
-                      <h4>Pentagon Design</h4>
+                      <h4 class="title is-5">Pentagon Design</h4>
                       <span>Graphic Designer (2017 - 2019)</span>
                     </li>
                     <li>
-                      <h4>Animate Studio</h4>
+                      <h4 class="title is-5">Animate Studio</h4>
                       <span>Graphic Designer (2015 - 2017)</span>
                     </li>
                     <li>
-                      <h4>Cute Studio</h4>
+                      <h4 class="title is-5">Cute Studio</h4>
                       <span>Graphic Designer (2014 - 2015)</span>
                     </li>
                     <li>
-                      <h4>City Printing</h4>
+                      <h4 class="title is-5">City Printing</h4>
                       <span>Graphic Designer (2013 - 2014)</span>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-
-
-
-
-            <!-- end my experience -->
           </div>
-        <div>
-          <Carousel ref="carouselRef" :itemsToShow="1.5" :wrapAround="true" :transition="500">
-            <Slide v-for="slide in slides" :key="slide">
-              <div class="carousel__item">{{ slide }}</div>
-            </Slide>
-          </Carousel>
 
-          <div class="slider-dots">
-            <div class="dot" v-for="(slide, index) in slides" :key="index" @click="goToSlide(index)">
-              {{ slide }}
+          <!-- Education Section -->
+          <div class="content">
+            <div class="columns">
+              <div class="column is-half">
+                <div class="content-left">
+                  <div class="title is-4">
+                    <h3 class="title is-4">Education</h3>
+                    <h2>Learning experience in a few <span>Professional Universities</span></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="timeline-content">
+                  <ul class="timeline">
+                    <li>
+                      <h4 class="title is-5">National University</h4>
+                      <span>Graphic Design Faculty (2016 - 2019)</span>
+                    </li>
+                    <li>
+                      <h4 class="title is-5">City University</h4>
+                      <span>Science Faculty (2012 - 2015)</span>
+                    </li>
+                    <li>
+                      <h4 class="title is-5">International University</h4>
+                      <span>Technical Information (2010 - 2012)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        </div>
+
+          <!-- Skills Section -->
+          <div class="content">
+            <div class="columns">
+              <div class="column is-half">
+                <div class="content-left">
+                  <div class="title is-4">
+                    <h3 class="title is-4">Skill</h3>
+                    <h2>With good <span>Personal</span> and <span>Professional Skills</span></h2>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-half">
+                <div class="content-right">
+                  <div class="accordion is-accordion">
+                    <article class="message">
+                      <div class="message-header" role="button" aria-expanded="true" aria-controls="personalSkill">
+                        <p><i class="fas fa-circle"></i> Personal Skill</p>
+                      </div>
+                      <div id="personalSkill" class="message-body">
+                        <ul class="personalSkill">
+                          <li>
+                            <div class="skill-title">
+                              <span>Creativity</span>
+                            </div>
+                            <progress class="progress is-primary" value="85" max="100">85%</progress>
+                          </li>
+                          <li>
+                            <div class="skill-title">
+                              <span>Innovation</span>
+                            </div>
+                            <progress class="progress is-primary" value="80" max="100">80%</progress>
+                          </li>
+                          <li>
+                            <div class="skill-title">
+                              <span>Communication</span>
+                            </div>
+                            <progress class="progress is-primary" value="90" max="100">90%</progress>
+                          </li>
+                          <li>
+                            <div class="skill-title">
+                              <span>Teamwork</span>
+                            </div>
+                            <progress class="progress is-primary" value="95" max="100">95%</progress>
+                          </li>
+                        </ul>
+                      </div>
+                    </article>
+
+                    <article class="message">
+                      <div class="message-header" role="button" aria-expanded="false" aria-controls="proSkill">
+                        <p><i class="fas fa-circle"></i> Professional Skill</p>
+                      </div>
+                      <div id="proSkill" class="message-body" style="display: none;">
+                        <ul class="pro-skill">
+                          <li>
+                            <div class="skill-title">
+                              <span>Graphic Design</span>
+                            </div>
+                            <progress class="progress is-primary" value="98" max="100">98%</progress>
+                          </li>
+                          <li>
+                            <div class="skill-title">
+                              <span>HTML & CSS</span>
+                            </div>
+                            <progress class="progress is-primary" value="90" max="100">90%</progress>
+                          </li>
+                          <li>
+                            <div class="skill-title">
+                              <span>JavaScript</span>
+                            </div>
+                            <progress class="progress is-primary" value="80" max="100">80%</progress>
+                          </li>
+                          <li>
+                            <div class="skill-title">
+                              <span>PHP</span>
+                            </div>
+                            <progress class="progress is-primary" value="75" max="100">75%</progress>
+                          </li>
+                          <li>
+                            <div class="skill-title">
+                              <span>Photography</span>
+                            </div>
+                            <progress class="progress is-primary" value="70" max="100">70%</progress>
+                          </li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="owl-dots">
+            <div class="owl-dot dotsyles"></div>
+            <div class="owl-dot dotsyles"></div>
+            <div class="owl-dot dotsyles"></div>
+          </div>
+
+        </carousel>
       </div>
+
+    </div>
   </div>
 </template>
 
-
-
-
 <script>
-// If you are using PurgeCSS, make sure to whitelist the carousel CSS classes
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-
-export default {
-  name: 'ResumeIntro',
+import { defineComponent } from "vue";
+import carousel from 'vue-owl-carousel/src/Carousel'
+export default defineComponent({
+  name: "ResumeIntro",
   components: {
-    Carousel,
-    Slide,
+    carousel
   },
-}
+  mounted() {
+    document.querySelectorAll('.message-header').forEach((header) => {
+      header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const isActive = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isActive);
+        content.style.display = isActive ? 'none' : 'block';
+      });
+    });
+  }
+});
 </script>
 
 <style scoped>
-.image img {
-  /* display: table-cell; */
-  height: auto;
+
+.owl-dots{
   width: 100%;
-  align-items: center;
-  margin-left: -2.1rem;
-  height: 21.3rem;
+  text-align: center;
 }
-.slider-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .dot {
-    width: 13px;
-    height: 13px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    will-change: transform;
-    transform: translateX(0);
-    transition: transform .2s;
-
-    &:not(:last-of-type) {
-      margin-right: .3rem;
-    }
-  }
+.dotsyles{
+  width: 10px;
+  height: 10px;
+  border: 1px solid red;
+  background: red;
+  display: inline-block;
 }
-
-
-.pagination-controls {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination-controls button {
-  margin: 0 5px;
-  padding: 10px 15px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
+.dotsyles:hover{
   cursor: pointer;
+  background: green;
+  border: 1px solid green;
+}
+h4{
+  font-size: 30px;
+  color: #fff;
 }
 
-.pagination-controls button:hover {
-  background-color: #ddd;
+#resume .timeline::before {
+  position: absolute;
+  left: 7px;
+}
+#resume .timeline li::before {
+  position: absolute;
+  left: 0;
 }
 
-.resume .content {
+#resume{
+  padding: 27px 0;
+  background: #262626;
+}
+
+#resume .content {
   padding: 40px;
   border-radius: 3px;
 }
 
-.section-title  {
-  color: #90ee90;
-  display: flex;
-  justify-content: center; /* Centraliza horizontalmente o conteúdo dentro do div */
-  align-items: center; /* Se precisar centralizar verticalmente também */
+.owl-carousel .owl-nav .owl-prev, .owl-carousel .owl-nav .owl-next {
+  display: none !important;
 }
-.section-title h3 {
-  font-size: 1.75rem;
+
+
+.box {
+  background: #262626; /* Fundo branco */
+  color: #fff; /* Texto preto */
+  padding: 40px;
+  border-radius: 3px;
+}
+
+.is-3 {
   font-weight: 700;
   color: #90ee90;
-  margin: auto; /* Assegura que a margem em tudo ao redor é igual, o que também centraliza o elemento */
 }
 
-.resume {
-  background: #262626;
-  color: #fafafa;
-}
-
-.resume h1, .resume h2, .resume h3, .resume h4, .resume h5, .resume h6 {
-  line-height: 110%;
-  margin: 0;
-  font-weight: 500;
-  color: #fff;
-}
-
-.resume h2 {
-  font-weight: 900;
-}
-
-.resume .resume .section-title h3 {
-  font-weight: 700;
-  color: #90ee90;
-  justify-content: center;
-}
-
-.resume .section-title h3 {
-  color: #90ee90;
-  margin-bottom: 2.5rem;
-  margin-top: 1.1428em;
-  font-weight: 700;
-}
-
-
-.resume .title-resume h3 {
+.is-4 {
   color: #90ee90;
   font-size: 22px;
   font-weight: 300;
@@ -186,51 +271,48 @@ export default {
   text-transform: uppercase;
 }
 
-.resume .title-resume h2 {
+.content h2:not(:first-child) {
+  color: #fff;
   font-size: 50px;
+  margin-top: 0em !important;
   font-weight: 900;
 }
 
-.resume .title-resume h2 span {
-  color: #90ee90;
+.section{
+  padding: 27px 0;
+  background: #262626;
 }
 
-.resume .timeline {
-  position: relative;
-  list-style-type: none;
+.is-5{
+    font-weight: 700;
+    margin-bottom: 15px;
+  color: #fff; /* Texto preto */
+    font-size: 22px;
 }
 
-.resume .timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: #fff;
+.timeline {
+  list-style: none;
+  padding-left: 0;
 }
-
-.resume .timeline > li {
-  margin-bottom: 30px;
-  padding-left: 30px;
-}
-
-.resume .timeline > li::before {
-  content: '';
-  background: #fff;
-  display: inline-block;
-  position: absolute;
-  border-radius: 50%;
-  left: -7px;
-  width: 16px;
-  height: 16px;
-}
-
-.resume .timeline > li h4 {
-  font-weight: 700;
+.timeline li {
   margin-bottom: 15px;
-  font-size: 22px;
 }
 
-/* Você pode incluir outras regras específicas de CSS aqui */
-/* Considere também incluir estilos de media queries para responsividade */
+
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: -webkit-linear-gradient(#fe6e00, #eb9859);
+}
+.owl-theme .owl-nav [class*=owl-]:hover {
+  background: -webkit-linear-gradient(#fe6e00, #eb9859);
+  color: #FFF;
+  text-decoration: none;
+}
+
+.skill-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
 </style>
