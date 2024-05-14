@@ -7,15 +7,16 @@
         <div class="column is-8-desktop is-12-tablet">
           <div class="content">
               <h3 class="title is-3">Sobre mim</h3>
-              <h2 class="title is-2">Eu sou desenvolvedor web</h2>
-              <p>Desenvolvedor com 8 anos de experiência</p>
+              <h3 class="title is-2">Desenvolvedor com 8 anos de experiência</h3>
               <p>Tecnologias Back-End: PHP / Node. Frameworks: Laravel, Yii2, OktoberCms</p>
               <p>Tecnologias Front-End: JS / jQuery, Vue3, Angular</p>
             </div>
           </div>
         <div class="column is-4-desktop is-12-tablet">
           <figure class="image">
-            <img src="../assets/images/about.png" alt="Intro Image">
+            <img src="../assets/images/about.png" style="
+    height: 17.4rem;
+" alt="Intro Image">
           </figure>
         </div>
         </div>
@@ -39,6 +40,9 @@ export default {
   background: #262626;
 }
 
+figure {
+  padding-right: 2.0625rem;
+}
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -58,7 +62,9 @@ body {
   color: #90ee90;
 }
 
-
+.content h3:not(:first-child) {
+  margin-top: 0.4333em;
+}
 
 .about .content-left .content h2 {
   font-size: 50px;

@@ -1,70 +1,56 @@
 <template>
   <loading v-model:active="isLoading"
            :can-cancel="false"
-           :on-cancel="onCancel"
            :background-color="212121"
            :opacity="1"
            :is-full-page="fullPage"/>
   <div id="app" v-if="!isLoading">
-
-
-  <main class="columns is-centered is-gapless is-multiline" :class="{'modo-escuro': modoEscuroAtivo}">
-    <div class="column is-three-fifths conteudo">
-      <DefaultNavbar />
-
-      <NotificationsMessage/>
-
+    <main>
+      <div class="columns is-centered is-gapless is-multiline" :class="{'modo-escuro': modoEscuroAtivo}">
+        <div class="column is-three-fifths conteudo">
       <router-view></router-view>
-    </div>
-  </main>
-    </div>
-
+        </div>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import BarraLateral from "@/components/BarraLateral.vue";
-import NotificationsMessage from "@/components/NotificationsMessage.vue";
-import Navbar from "@/components/NabBar.vue";
-import DefaultNavbar from "@/components/DefaultNavbar.vue";
-import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
+import Loading from "vue-loading-overlay";
 export default defineComponent({
   name: "App",
+  components: {Loading},
   created () {
     document.title = "Portfolio de Flávio Martil";
   },
-  // eslint-disable-next-line vue/no-unused-components
-  components: { NotificationsMessage, DefaultNavbar,  Loading },
   data() {
     return {
       modoEscuroAtivo: false,
       isLoading: true,
-      fullPage: true
+      fullPage: true,
+      isNavbarExpanded: false,
     };
   },
+
   mounted() {
     // Define um tempo para ocultar o loader após X segundos
     setTimeout(() => {
       this.isLoading = false;
     }, 1000); // 3000 ms -> 3 segundos
   },
-  methods: {
-    trocarTema (modoEscuroAtivo: boolean) {
-    this.modoEscuroAtivo = modoEscuroAtivo
-    },
 
-    onCancel() {
-      console.log('User cancelled the loader.')
-    }
+  methods: {
+    trocarTema(modoEscuroAtivo: boolean) {
+      this.modoEscuroAtivo = modoEscuroAtivo
+    },
   },
 });
 </script>
 
 <style>
-.lista {
-  padding: 1.25rem;
-}
+
 main {
   min-height: 100vh;
   --texto-primario: #fafafa;

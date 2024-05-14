@@ -1,5 +1,5 @@
 <template>
-  <nav ref="navbar" class="navbar is-dark" :class="{ 'is-expanded': isNavbarExpanded }">
+  <nav ref="navbar" class="navbar" :class="{ 'is-expanded': isNavbarExpanded }">
     <div class="navbar-brand">
       <a href="#" class="navbar-item">
         <h2>FLÁVIO</h2>
@@ -103,12 +103,17 @@ export default {
 
 <style scoped>
 
+
+
+a.navbar-item:hover {
+  background: #262626;
+  color: #fff;
+}
 /* Estilo scoped específico da navbar */
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 27px auto; /* Se a sua navbar está dentro de um container, ajuste a margem */
   background: #262626;
   color: #fff;
   padding: 8px 40px;
@@ -120,7 +125,11 @@ export default {
   background: -webkit-linear-gradient(right, #004d00, #008000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 24px; /* Exemplo de tamanho de fonte ajustado */
+  font-size: 36px /* Exemplo de tamanho de fonte ajustado */
+}
+
+.navbar.is-dark .navbar-brand>a.navbar-item :hover {
+  background: -webkit-linear-gradient(right, #004d00, #008000);
 }
 .navbar .navbar-nav .nav-item .nav-link {
   color: #fff;
@@ -143,7 +152,6 @@ export default {
 }
 
 .navbar-item {
-  color: #fafafa;
   color: #fff;
   font-weight: 500;
   letter-spacing: 1px;

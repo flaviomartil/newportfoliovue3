@@ -7,13 +7,13 @@
         <div class="column is-8-desktop is-12-tablet">
           <div class="content">
             <p class="subtitle is-5">Eu sou Flávio Martil</p>
-            <h1 class="title is-2">Desenvolvedor FullStack</h1>
-            <button class="button is-primary">Contato</button>
+            <h2 class="title is-2">Desenvolvedor FullStack</h2>
+            <button @click="scrollToSection('contact')" class="button is-primary">Contato</button>
           </div>
         </div>
 
         <!-- Coluna de imagem -->
-        <div class="column is-4-desktop is-12-tablet">
+        <div class="column is-4-desktop is-12-tablet image-column">
           <figure class="image-right">
             <img src="../assets/images/intro-image.png" alt="Intro Image">
           </figure>
@@ -26,23 +26,81 @@
 
 <script>
 export default {
-  name: 'HomeIntro'
+  name: 'HomeIntro',
+  data: () => {
+    return {
+      modoEscuroAtivo: false,
+      isNavbarExpanded: false,
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const currentScroll = window.pageYOffset;
+      const navbar = this.$refs.navbar;
+      const threshold = 100; // Ajuste o valor conforme necessário
+
+      this.isNavbarExpanded = currentScroll > threshold;
+    },
+    alterarTema() {
+      this.modoEscuroAtivo = !this.modoEscuroAtivo;
+      this.$emit("aoTemaAlterado", this.modoEscuroAtivo);
+    },
+    scrollToSection(id) {
+      const targetSection = document.getElementById(id);
+      const currentPosition = window.pageYOffset;
+      const targetPosition = targetSection ? targetSection.offsetTop : 0;
+
+      if (targetSection && currentPosition !== targetPosition) {
+        this.smoothScroll(currentPosition, targetPosition);
+      }
+    },
+    smoothScroll(start, end) {
+      const duration = 1000; // Duração da rolagem em milissegundos
+      const startTime = performance.now();
+
+      const easeInOutQuad = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+      const scrollStep = (currentTime) => {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const ease = easeInOutQuad(progress);
+        const scrollTo = start + (end - start) * ease;
+
+        window.scrollTo(0, scrollTo);
+
+        if (progress < 1) {
+          requestAnimationFrame(scrollStep);
+        }
+      };
+
+      requestAnimationFrame(scrollStep);
+    }
+  },
 }
 </script>
 
 <style scoped>
+
+.segments {
+  padding: 27px 0;
+}
 .home-intro {
   padding: 27px 0;
   background: #262626;
+}
+figure {
+  padding-right: 2.0625rem;
 }
 
 .home-intro .content {
   padding: 40px;
   border-radius: 3px;
 }
-
-
-
 
 .home-intro .content .subtitle {
   font-family: 'Roboto', sans-serif;
@@ -56,7 +114,7 @@ export default {
 
 .home-intro .content .title {
   font-family: 'Roboto', sans-serif;
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 900;
   background: -webkit-linear-gradient(right, #004d00, #008000);
   -webkit-background-clip: text;
@@ -68,7 +126,6 @@ export default {
 .home-intro .intro-content .intro-caption h2 {
   font-size: 70px;
   font-weight: 900;
-
 }
 
 .home-intro .content .button {
@@ -83,5 +140,20 @@ export default {
   overflow: hidden;
 }
 
-/* Correções adicionais e personalizações devem ser adicionar aqui */
+/* Adicionando estilo personalizado para a coluna de imagem */
+.image-column {
+  display: flex;
+  align-items: center;
+}
+
+.home-intro .image-right {
+  width: 100%;
+  height: 100%; /* Ajuste a altura conforme necessário */
+}
+
+.home-intro .image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Para cobrir o contêiner */
+}
 </style>
