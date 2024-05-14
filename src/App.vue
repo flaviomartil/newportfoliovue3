@@ -1,10 +1,10 @@
 <template>
-  <main class="columns is-gapless is-multiline" :class="{'modo-escuro': modoEscuroAtivo}">
-    <div class="column is-one-fifth">
-      <BarraLateral @aoTemaAlterado="trocarTema" />
-    </div>
-    <div class="column is-three-quarter conteudo">
+  <main class="columns is-centered is-gapless is-multiline" :class="{'modo-escuro': modoEscuroAtivo}">
+    <div class="column is-three-fifths conteudo">
+      <DefaultNavbar />
+
       <NotificationsMessage/>
+
       <router-view></router-view>
     </div>
   </main>
@@ -16,10 +16,14 @@
 import { defineComponent } from "vue";
 import BarraLateral from "@/components/BarraLateral.vue";
 import NotificationsMessage from "@/components/NotificationsMessage.vue";
-
+import Navbar from "@/components/NabBar.vue";
+import DefaultNavbar from "@/components/DefaultNavbar.vue";
 export default defineComponent({
   name: "App",
-  components: { BarraLateral, NotificationsMessage },
+  created () {
+    document.title = "Portfolio de Flávio Martil";
+  },
+  components: { NotificationsMessage, DefaultNavbar },
   data() {
     return {
       modoEscuroAtivo: false
@@ -38,16 +42,26 @@ export default defineComponent({
   padding: 1.25rem;
 }
 main {
-  --bg-primario: #fff;
-  --texto-primario: #000;
+  min-height: 100vh;
+  --texto-primario: #fafafa;
   --barra-lateral: grey;
+  font-size: 14px;
+  line-height: 22px;
 
 }
 
 main.modo-escuro {
-  --bg-primario: #2d2f40;
   --texto-primario: #ddd;
   --barra-lateral:#20222e;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #212121;
+  color: #fafafa;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .conteudo {

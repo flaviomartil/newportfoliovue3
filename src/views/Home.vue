@@ -1,0 +1,61 @@
+<template>
+  <div class="fakeLoader"></div>
+    <HomeIntro></HomeIntro>
+  <div class="component-spacing"></div>
+  <AboutIntro></AboutIntro>
+  <div class="component-spacing"></div>
+  <ResumeIntro></ResumeIntro>
+  <div class="component-spacing"></div>
+  <PortfolioIntro></PortfolioIntro>
+  <div class="component-spacing"></div>
+  <contact-intro></contact-intro>
+  <div class="component-spacing"></div>
+  <DefaultFooter></DefaultFooter>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import ITarefa from "@/interfaces/ITarefa";
+import LoadScript from "vue-plugin-load-script";
+
+import HomeIntro from "@/components/HomeIntro.vue";
+import AboutIntro from "@/components/AboutIntro.vue";
+import ResumeIntro from "@/components/ResumeIntro.vue";
+import PortfolioIntro from "@/components/PortfolioIntro.vue";
+import ContactIntro from "@/components/ContactIntro.vue";
+import DefaultFooter from "@/components/DefaultFooter.vue";
+
+export default defineComponent({
+  name: "App",
+  components: {DefaultFooter, ContactIntro, PortfolioIntro, AboutIntro,  HomeIntro, ResumeIntro},
+  data() {
+    return {
+      tarefas: [] as ITarefa[],
+    };
+  },
+  methods: {
+    salvarTarefa(tarefa: ITarefa) {
+      this.tarefas.push(tarefa);
+    },
+  },
+  computed: {
+    listaEstaVazia(): boolean {
+      return this.tarefas.length === 0;
+    },
+  },
+});
+
+</script>
+
+
+
+<style scoped>
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,900&display=swap";
+@import "/src/assets/css/font-awesome.css";
+@import "/src/assets/css/fakeLoader.css";
+@import "/src/assets/css/magnific-popup.css";
+
+.component-spacing {
+  margin-top: 60px; /* Espaçamento entre componentes */
+}
+</style>
