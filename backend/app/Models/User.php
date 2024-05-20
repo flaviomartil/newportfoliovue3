@@ -38,6 +38,22 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Education::class);
     }
 
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    public function components()
+    {
+        return $this->hasMany(Component::class);
+    }
+
+    public function getComponentsGroupedAttribute()
+    {
+        return $this->components->groupBy('component')->map(function ($items, $key) {
+            return $items->toArray();
+        })->toArray();
+    }
     public function projects()
     {
         return $this->hasMany(Project::class);

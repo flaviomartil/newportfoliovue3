@@ -6,8 +6,10 @@
         <!-- Coluna de texto -->
         <div class="column is-8-desktop is-12-tablet">
           <div class="content">
-            <p class="subtitle is-5">Eu sou Flávio Martil</p>
-            <h2 class="title is-2">Desenvolvedor FullStack</h2>
+          <div  v-for="home in resumeData?.components?.home" :key="home.id">
+            <p v-if="home.subtitle == 'Sou Flávio Martil'" class="subtitle is-4">{{ home.subtitle }}</p>
+            <h2 v-else class="title is-2">{{ home.subtitle }}</h2>
+          </div>
             <button @click="scrollToSection('contact')" class="button is-primary">Contato</button>
           </div>
         </div>
@@ -27,6 +29,12 @@
 <script>
 export default {
   name: 'HomeIntro',
+  props: {
+    resumeData: {
+      type: Object,
+      required: true
+    },
+  },
   data: () => {
     return {
       modoEscuroAtivo: false,

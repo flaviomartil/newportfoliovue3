@@ -24,19 +24,12 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $user = User::first();
-        $personalInfo =  $user->personal_info;
-        $experiences = $user->experiences;
-        $projects = $user->projects;
-        $about = $user->abouts;
+        $user = User::with('personalInfo', 'abouts', 'experiences', 'education', 'projects','skills','components')->first();
+        $user->components = $user->componentsGrouped;
 
 
         return response()->json([
             'user' => $user,
-            'about' => $about,
-            'personal_info' => $personalInfo,
-            'experiences' => $experiences,
-            'projects' => $projects
         ]);
     }
 

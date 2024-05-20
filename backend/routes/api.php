@@ -8,6 +8,7 @@ use App\Http\Controllers\PersonalInfoController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ComponentController;
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
@@ -16,6 +17,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('education', EducationController::class);
     Route::apiResource('skills', SkillController::class);
     Route::apiResource('about', AboutController::class);
+    Route::apiResource('components', ComponentController::class);
     Route::apiResource('personal-info', PersonalInfoController::class);
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
         Route::post('users', [PortfolioController::class, 'store']);

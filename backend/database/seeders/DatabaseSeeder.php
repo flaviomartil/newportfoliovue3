@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             PersonalInfoSeeder::class,
             ProjectSeeder::class,
             SkillSeeder::class,
+            ComponentSeeder::class
         ]);
     }
 }

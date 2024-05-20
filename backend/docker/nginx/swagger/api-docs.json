@@ -25,9 +25,46 @@
             "bearerAuth": []
         }
     ],
+    "tags": [
+        {
+            "name": "Skill",
+            "description": "Operations about skills"
+        },
+        {
+            "name": "Project",
+            "description": "Operations about projects"
+        },
+        {
+            "name": "Experience",
+            "description": "Operations about experiences"
+        },
+        {
+            "name": "User",
+            "description": "Operations about users"
+        },
+        {
+            "name": "PersonalInfo",
+            "description": "Operations about personal information"
+        },
+        {
+            "name": "Education",
+            "description": "Operations about education"
+        },
+        {
+            "name": "Auth",
+            "description": "Authentication operations"
+        },
+        {
+            "name": "Component",
+            "description": "Operations about components"
+        }
+    ],
     "paths": {
         "/api/skills": {
             "get": {
+                "tags": [
+                    "Skill"
+                ],
                 "summary": "Get All Skills",
                 "responses": {
                     "200": {
@@ -36,6 +73,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "Skill"
+                ],
                 "summary": "Create Skill",
                 "requestBody": {
                     "content": {
@@ -43,9 +83,15 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "description": { "type": "string" },
-                                    "progress": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "progress": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -60,13 +106,18 @@
         },
         "/api/skills/{id}": {
             "get": {
+                "tags": [
+                    "Skill"
+                ],
                 "summary": "Get Skill by ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -76,13 +127,18 @@
                 }
             },
             "put": {
+                "tags": [
+                    "Skill"
+                ],
                 "summary": "Update Skill",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "requestBody": {
@@ -91,9 +147,15 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "description": { "type": "string" },
-                                    "progress": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "progress": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -106,13 +168,18 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "Skill"
+                ],
                 "summary": "Delete Skill",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -124,6 +191,9 @@
         },
         "/api/projects": {
             "get": {
+                "tags": [
+                    "Project"
+                ],
                 "summary": "Get All Projects",
                 "responses": {
                     "200": {
@@ -132,6 +202,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "Project"
+                ],
                 "summary": "Create Project",
                 "requestBody": {
                     "content": {
@@ -139,12 +212,24 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "description": { "type": "string" },
-                                    "photo": { "type": "string" },
-                                    "link": { "type": "string" },
-                                    "date": { "type": "string" },
-                                    "user_id": { "type": "integer" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "photo": {
+                                        "type": "string"
+                                    },
+                                    "link": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
                                 }
                             }
                         }
@@ -159,13 +244,18 @@
         },
         "/api/projects/{id}": {
             "get": {
+                "tags": [
+                    "Project"
+                ],
                 "summary": "Get Project by ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -175,13 +265,18 @@
                 }
             },
             "put": {
+                "tags": [
+                    "Project"
+                ],
                 "summary": "Update Project",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "requestBody": {
@@ -190,11 +285,21 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "description": { "type": "string" },
-                                    "photo": { "type": "string" },
-                                    "link": { "type": "string" },
-                                    "date": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "photo": {
+                                        "type": "string"
+                                    },
+                                    "link": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -207,13 +312,18 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "Project"
+                ],
                 "summary": "Delete Project",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -225,6 +335,9 @@
         },
         "/api/experiences": {
             "get": {
+                "tags": [
+                    "Experience"
+                ],
                 "summary": "Get All Experiences",
                 "responses": {
                     "200": {
@@ -233,6 +346,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "Experience"
+                ],
                 "summary": "Create Experience",
                 "requestBody": {
                     "content": {
@@ -240,11 +356,21 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "description": { "type": "string" },
-                                    "company_name": { "type": "string" },
-                                    "started_in": { "type": "string" },
-                                    "finished_in": { "type": "string" },
-                                    "user_id": { "type": "integer" }
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "company_name": {
+                                        "type": "string"
+                                    },
+                                    "started_in": {
+                                        "type": "string"
+                                    },
+                                    "finished_in": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
                                 }
                             }
                         }
@@ -259,13 +385,18 @@
         },
         "/api/experiences/{id}": {
             "get": {
+                "tags": [
+                    "Experience"
+                ],
                 "summary": "Get Experience by ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -275,13 +406,18 @@
                 }
             },
             "put": {
+                "tags": [
+                    "Experience"
+                ],
                 "summary": "Update Experience",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "requestBody": {
@@ -290,10 +426,18 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "description": { "type": "string" },
-                                    "company_name": { "type": "string" },
-                                    "started_in": { "type": "string" },
-                                    "finished_in": { "type": "string" }
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "company_name": {
+                                        "type": "string"
+                                    },
+                                    "started_in": {
+                                        "type": "string"
+                                    },
+                                    "finished_in": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -306,13 +450,18 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "Experience"
+                ],
                 "summary": "Delete Experience",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -324,6 +473,9 @@
         },
         "/api/users": {
             "post": {
+                "tags": [
+                    "User"
+                ],
                 "summary": "Create User",
                 "requestBody": {
                     "content": {
@@ -331,10 +483,18 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "email": { "type": "string" },
-                                    "password": { "type": "string" },
-                                    "password_confirmation": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -347,6 +507,9 @@
                 }
             },
             "get": {
+                "tags": [
+                    "User"
+                ],
                 "summary": "Get All Users",
                 "responses": {
                     "200": {
@@ -357,13 +520,18 @@
         },
         "/api/users/{id}": {
             "get": {
+                "tags": [
+                    "User"
+                ],
                 "summary": "Get Single User",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -373,13 +541,18 @@
                 }
             },
             "put": {
+                "tags": [
+                    "User"
+                ],
                 "summary": "Update User",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "requestBody": {
@@ -388,10 +561,18 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "email": { "type": "string" },
-                                    "password": { "type": "string" },
-                                    "password_confirmation": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -404,13 +585,18 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "User"
+                ],
                 "summary": "Delete User",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -422,6 +608,9 @@
         },
         "/api/personal-info": {
             "get": {
+                "tags": [
+                    "PersonalInfo"
+                ],
                 "summary": "Get All Personal Info",
                 "responses": {
                     "200": {
@@ -430,6 +619,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "PersonalInfo"
+                ],
                 "summary": "Create Personal Info",
                 "requestBody": {
                     "content": {
@@ -437,14 +629,30 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "avatar": { "type": "string" },
-                                    "instagram": { "type": "string" },
-                                    "facebook": { "type": "string" },
-                                    "whatsapp": { "type": "string" },
-                                    "linkedin": { "type": "string" },
-                                    "email": { "type": "string" },
-                                    "user_id": { "type": "integer" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "avatar": {
+                                        "type": "string"
+                                    },
+                                    "instagram": {
+                                        "type": "string"
+                                    },
+                                    "facebook": {
+                                        "type": "string"
+                                    },
+                                    "whatsapp": {
+                                        "type": "string"
+                                    },
+                                    "linkedin": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    }
                                 }
                             }
                         }
@@ -459,13 +667,18 @@
         },
         "/api/personal-info/{id}": {
             "get": {
+                "tags": [
+                    "PersonalInfo"
+                ],
                 "summary": "Get Personal Info by ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -475,13 +688,18 @@
                 }
             },
             "put": {
+                "tags": [
+                    "PersonalInfo"
+                ],
                 "summary": "Update Personal Info",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "requestBody": {
@@ -490,13 +708,27 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "avatar": { "type": "string" },
-                                    "instagram": { "type": "string" },
-                                    "facebook": { "type": "string" },
-                                    "whatsapp": { "type": "string" },
-                                    "linkedin": { "type": "string" },
-                                    "email": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "avatar": {
+                                        "type": "string"
+                                    },
+                                    "instagram": {
+                                        "type": "string"
+                                    },
+                                    "facebook": {
+                                        "type": "string"
+                                    },
+                                    "whatsapp": {
+                                        "type": "string"
+                                    },
+                                    "linkedin": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -509,13 +741,18 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "PersonalInfo"
+                ],
                 "summary": "Delete Personal Info",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -527,6 +764,9 @@
         },
         "/api/education": {
             "get": {
+                "tags": [
+                    "Education"
+                ],
                 "summary": "Get All Education Records",
                 "responses": {
                     "200": {
@@ -535,6 +775,9 @@
                 }
             },
             "post": {
+                "tags": [
+                    "Education"
+                ],
                 "summary": "Create Education Record",
                 "requestBody": {
                     "content": {
@@ -542,10 +785,18 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "description": { "type": "string" },
-                                    "started_in": { "type": "string" },
-                                    "finished_in": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "started_in": {
+                                        "type": "string"
+                                    },
+                                    "finished_in": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -560,13 +811,18 @@
         },
         "/api/education/{id}": {
             "get": {
+                "tags": [
+                    "Education"
+                ],
                 "summary": "Get Education Record by ID",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -576,13 +832,18 @@
                 }
             },
             "put": {
+                "tags": [
+                    "Education"
+                ],
                 "summary": "Update Education Record",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "requestBody": {
@@ -591,10 +852,18 @@
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "name": { "type": "string" },
-                                    "description": { "type": "string" },
-                                    "started_in": { "type": "string" },
-                                    "finished_in": { "type": "string" }
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "started_in": {
+                                        "type": "string"
+                                    },
+                                    "finished_in": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
@@ -607,13 +876,18 @@
                 }
             },
             "delete": {
+                "tags": [
+                    "Education"
+                ],
                 "summary": "Delete Education Record",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": { "type": "string" }
+                        "schema": {
+                            "type": "string"
+                        }
                     }
                 ],
                 "responses": {
@@ -623,17 +897,86 @@
                 }
             }
         },
-        "/api/login": {
+        "/api/components": {
             "post": {
-                "summary": "User Login",
+                "tags": [
+                    "Component"
+                ],
+                "summary": "Store Component",
                 "requestBody": {
+                    "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object",
                                 "properties": {
-                                    "email": { "type": "string" },
-                                    "password": { "type": "string" }
+                                    "subtitle": {
+                                        "type": "string"
+                                    },
+                                    "component": {
+                                        "type": "string"
+                                    },
+                                    "user_id": {
+                                        "type": "integer"
+                                    },
+                                    "font-size": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "example": {
+                                    "subtitle": "Sample Subtitle",
+                                    "component": "Sample Component",
+                                    "user_id": 1,
+                                    "font-size": 12
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully created component"
+                    }
+                }
+            }
+        },
+        "/api/components/{component_id}": {
+            "put": {
+                "tags": [
+                    "Component"
+                ],
+                "summary": "Update Component",
+                "parameters": [
+                    {
+                        "name": "component_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "subtitle": {
+                                        "type": "string"
+                                    },
+                                    "component": {
+                                        "type": "string"
+                                    },
+                                    "font-size": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "example": {
+                                    "subtitle": "Updated Subtitle",
+                                    "component": "Updated Component",
+                                    "font-size": 14
                                 }
                             }
                         }
@@ -641,26 +984,36 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Successfully logged in"
+                        "description": "Successfully updated component"
                     }
                 }
             }
         },
-        "/api/logout": {
+        "/api/login": {
             "post": {
-                "summary": "User Logout",
-                "responses": {
-                    "200": {
-                        "description": "Successfully logged out"
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User Login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-    },
-    "tags": [
-        {
-            "name": "User",
-            "description": "Operations about user"
-        }
-    ]
+
+    }
 }

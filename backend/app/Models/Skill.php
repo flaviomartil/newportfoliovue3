@@ -17,7 +17,14 @@ class Skill extends Model
         'name',
         'description',
         'progress',
+        'user_id',
     ];
 
     protected $table = 'skills';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

@@ -5,7 +5,7 @@
         <div class="columns">
           <div class="column is-half">
             <h3 class="title is-3">Me contate</h3>
-            <h2 class="subtitle is-created">Inicie seu projeto</h2>
+            <h2 class="subtitle is-created" v-for="contact in resumeData?.components?.contact" :key="contact.id">{{ contact.subtitle }}</h2>
             <div class="social-links">
               <a href="#" class="icon">
                 <i class="fab fa-facebook-f"></i>
@@ -27,12 +27,12 @@
                 <div class="field-body">
                   <div class="field">
                     <p class="control is-expanded">
-                      <input class="input color form-control" type="text" placeholder="First Name" name="form-name">
+                      <input class="input color form-control" type="text" placeholder="Nome" name="form-name">
                     </p>
                   </div>
                   <div class="field">
                     <p class="control is-expanded">
-                      <input class="input form-control" type="text" placeholder="Last Name" name="form-last-name">
+                      <input class="input form-control" type="text" placeholder="Sobrenome" name="form-last-name">
                     </p>
                   </div>
                 </div>
@@ -41,19 +41,19 @@
                 <div class="field-body">
                   <div class="field is-expanded">
                     <p class="control is-expanded">
-                      <input class="input form-control" type="email" placeholder="Email Address" name="form-email">
+                      <input class="input form-control" type="email" placeholder="Email" name="form-email">
                     </p>
                   </div>
                   <div class="field is-expanded">
                     <p class="control is-expanded">
-                      <input class="input form-control" type="text" placeholder="Subject" name="form-subject">
+                      <input class="input form-control" type="text" placeholder="Assunto" name="form-subject">
                     </p>
                   </div>
                 </div>
               </div>
               <div class="field">
                 <p class="control">
-                  <textarea class="textarea form-control" rows="5" placeholder="Message" name="form-message"></textarea>
+                  <textarea class="textarea form-control" rows="5" placeholder="Mensagem" name="form-message"></textarea>
                 </p>
               </div>
               <p class="control">
@@ -69,8 +69,13 @@
 
 <script>
 export default {
-  name: 'ContactIntro'
-  // Você pode adicionar dados, computed properties, methods, etc., aqui.
+  name: 'ContactIntro',
+  props: {
+    resumeData: {
+      type: Object,
+      required: true
+    }
+  },
 };
 </script>
 
@@ -198,6 +203,10 @@ export default {
 
 .social-links .icon:hover i {
   color: #525252;
+}
+
+.timeline-content .title-is-5 {
+  margin-top: 0.3rem;
 }
 
 .field .input, .field .textarea {

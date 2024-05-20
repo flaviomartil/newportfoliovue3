@@ -12,7 +12,8 @@ class SkillSeeder extends Seeder
         Skill::create([
             'name' => 'Laravel',
             'description' => 'Framework PHP para desenvolvimento web',
-            'progress' => '70'
+            'progress' => '70',
+            'user_id' => 1
         ]);
 
     }

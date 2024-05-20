@@ -1,24 +1,22 @@
 <template>
-  <div>
-    <div class="component-spacing2"></div>
-    <default-navbar></default-navbar>
-    <div class="component-spacing"></div>
-    <HomeIntro :userData="userData"></HomeIntro>
-    <div class="component-spacing"></div>
-    <AboutIntro :userData="userData"></AboutIntro>
-    <div class="component-spacing"></div>
-    <ResumeIntro :userData="userData"></ResumeIntro>
-    <div class="component-spacing"></div>
-    <PortfolioIntro :userData="userData"></PortfolioIntro>
-    <div class="component-spacing"></div>
-    <contact-intro :userData="userData"></contact-intro>
-    <div class="component-spacing"></div>
-    <DefaultFooter></DefaultFooter>
-  </div>
+  <div class="component-spacing2"></div>
+  <default-navbar></default-navbar>
+  <div class="component-spacing"></div>
+  <HomeIntro :resumeData="resumeData"></HomeIntro>
+  <div class="component-spacing"></div>
+  <AboutIntro :about="aboutsData"></AboutIntro>
+  <div class="component-spacing"></div>
+  <ResumeIntro :resumeData="resumeData"></ResumeIntro>
+  <div class="component-spacing"></div>
+  <PortfolioIntro :projects=" projectsData"></PortfolioIntro>
+  <div class="component-spacing"></div>
+  <contact-intro :resumeData="resumeData"></contact-intro>
+  <div class="component-spacing"></div>
+  <DefaultFooter></DefaultFooter>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted } from "vue";
+import {ref, onMounted } from "vue";
 import HomeIntro from "@/components/HomeIntro.vue";
 import AboutIntro from "@/components/AboutIntro.vue";
 import ResumeIntro from "@/components/ResumeIntro.vue";
@@ -27,36 +25,94 @@ import ContactIntro from "@/components/ContactIntro.vue";
 import DefaultFooter from "@/components/DefaultFooter.vue";
 import DefaultNavbar from "@/components/DefaultNavbar.vue";
 import apiClient from '@/axios-config';
-export default defineComponent({
-  name: "App",
+
+export default {
+  name: 'App',
   components: {
     DefaultNavbar,
-    DefaultFooter, ContactIntro, PortfolioIntro, AboutIntro, HomeIntro, ResumeIntro
+    HomeIntro,
+    AboutIntro,
+    ResumeIntro,
+    PortfolioIntro,
+    ContactIntro,
+    DefaultFooter
   },
+
   setup() {
-    const userData = ref(null);
+
+    interface Component {
+      type: string;
+      [key: string]: any;
+    }
+
+    interface ResumeData {
+      experiences: any;
+      education: any;
+      skills:any;
+      contact:any;
+      components: {
+        experiences: Component[];
+        about: Component[];
+        home: Component[];
+        contact: Component[];
+        education: Component[];
+        projects: Component[];
+        skills: Component[];
+      };
+    }
+
+    const userData = ref<any>(null);
+    const aboutsData = ref<any>(null);
+    const resumeData = ref<{ experiences: any; education: any; components: any, skills:any, contact:any } | null>(null);
+    const projectsData = ref<any>(null);
 
     const fetchUserData = () => {
       apiClient.get('/users')
-          .then((response: { data: null; }) => {
-            userData.value = response.data;
+          .then((response) => {
+            const data = response.data.user;
+            userData.value = data;
+            aboutsData.value = data.abouts;
+
+            const components: Component[]  = data.components;
+
+            const filteredComponents = {
+              experiences: components.filter((component: Component) => component.component === 'experiences'),
+              about: components.filter((component: Component) => component.component === 'about'),
+              home: components.filter((component: Component) => component.component === 'home'),
+              contact: components.filter((component: Component) => component.component === 'contact'),
+              education: components.filter((component: Component) => component.component === 'education'),
+              projects: components.filter((component: Component) => component.component === 'projects'),
+              skills: components.filter((component: Component) => component.component === 'skills')
+            };
+
+            resumeData.value = {
+              experiences: data.experiences,
+              education: data.education,
+              components: filteredComponents,
+              skills: data.skills,
+              contact: data.contact
+            };
+
+            projectsData.value = data.projects;
           })
-          .catch((error: any) => {
-            console.error(error);
+          .catch((error) => {
+            console.log(error);
           });
     };
 
     onMounted(() => {
+      console.log('Component mounted.');
       fetchUserData();
     });
 
     return {
       userData,
+      aboutsData,
+      resumeData,
+      projectsData
     };
   },
-
-
-});
+};
 
 </script>
 <style scoped>

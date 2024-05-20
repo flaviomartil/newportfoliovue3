@@ -7,9 +7,9 @@
         <div class="column is-8-desktop is-12-tablet">
           <div class="content">
               <h3 class="title is-3">Sobre mim</h3>
-              <h3 class="title is-2">Desenvolvedor com 8 anos de experiência</h3>
-              <p>Tecnologias Back-End: PHP / Node. Frameworks: Laravel, Yii2, OktoberCms</p>
-              <p>Tecnologias Front-End: JS / jQuery, Vue3, Angular</p>
+              <h3 class="title is-2">{{ about?.description }}</h3>
+              <p>Tecnologias Back-End: {{ about?.back_techs }}</p>
+              <p>Tecnologias Front-End: {{ about?.front_techs }}</p>
             </div>
           </div>
         <div class="column is-4-desktop is-12-tablet">
@@ -28,8 +28,13 @@
 <script>
 export default {
   name: 'AboutIntro',
-
-}
+  props: {
+    about: {
+      type: Object,
+      required: true
+    }
+  }
+};
 </script>
 
 <style scoped>

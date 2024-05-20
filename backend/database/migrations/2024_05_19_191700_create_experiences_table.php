@@ -13,6 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('description', 255);
             $table->string('company_name', 255);
+            $table->string('technologies', 255);
             $table->date('started_in');
             $table->date('finished_in')->nullable();
             $table->timestamps();
