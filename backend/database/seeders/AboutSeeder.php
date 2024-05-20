@@ -21,10 +21,16 @@ class AboutSeeder extends Seeder
         ]);
 
         $photo = $about->addMediaFromBase64($base64Image)->usingFileName('foto.webp')->toMediaCollection('photos');
-        $about->photo =   $photo->getUrl();
+        $absolutePath = $photo->getPath(); // Ex: /var/www/app/storage/app/public/1/foto.webp
+
+// Manipulando o caminho absoluto para obter o caminho relativo esperado
+        $relativePath = str_replace(storage_path('app/public/'), '', $absolutePath);
+
+// Gerando a URL completa
+        $about->photo = asset('storage/' . $relativePath);
+
+// Salvando no modelo
         $about->save();
-
-
 
 
     }
