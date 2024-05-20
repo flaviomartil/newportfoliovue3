@@ -1,10 +1,15 @@
-  const { defineConfig } = require('@vue/cli-service');
 
-  module.exports = defineConfig({
-    transpileDependencies: true,
-    devServer: {
-      host: '0.0.0.0',
-      port: 9097,
-      allowedHosts: 'all'
+   const { defineConfig } = require('@vue/cli-service')
+
+module.exports = {
+  devServer: {
+      allowedHosts: 'all',
+    proxy: {
+      '^/api': {
+        target: 'https://api.flaviomartil.tech',
+        ws: true,
+        changeOrigin: true
+      }
     }
-  });
+  }
+}
