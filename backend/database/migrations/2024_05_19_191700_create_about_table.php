@@ -12,8 +12,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('description', 255);
-            $table->string('back_techs', 255);
-            $table->string('front_techs', 255);
+            $table->string('subtitle', 255);
             $table->string('photo', 255)->nullable();
             $table->timestamps();
 

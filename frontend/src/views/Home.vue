@@ -66,7 +66,7 @@ export default {
 
     const userData = ref<any>(null);
     const aboutsData = ref<any>(null);
-    const resumeData = ref<{ experiences: any; education: any; components: any, skills:any, contact:any } | null>(null);
+    const resumeData = ref<{ experiences: any; education: any; components: any, skills:any, contact:any,personal_info: any  } | null>(null);
     const projectsData = ref<any>(null);
 
     const fetchUserData = () => {
@@ -101,7 +101,8 @@ export default {
               education: data.education,
               components: filteredComponents,
               skills: data.skills,
-              contact: filteredSocial
+              contact: filteredSocial,
+              personal_info: data.personal_info
             };
 
             projectsData.value = data.projects;

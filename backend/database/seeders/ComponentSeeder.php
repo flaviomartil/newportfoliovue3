@@ -44,7 +44,7 @@ class ComponentSeeder extends Seeder
         ]);
 
         Component::create([
-            'subtitle' => 'Desenvolvedor FullStack à Sua Disposição',
+            'subtitle' => 'Desenvolvedor FullStack',
             'component' => 'home',
             'user_id' => 1,
             'font-size' => 14,

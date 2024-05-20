@@ -8,15 +8,12 @@
           <div class="content">
               <h3 class="title is-3">Sobre mim</h3>
               <h3 class="title is-2">{{ about?.description }}</h3>
-              <p>Tecnologias Back-End: {{ about?.back_techs }}</p>
-              <p>Tecnologias Front-End: {{ about?.front_techs }}</p>
+              <h4 class="is-subtitle"> {{ about?.subtitle }}</h4>
             </div>
           </div>
         <div class="column is-4-desktop is-12-tablet">
           <figure class="image">
-            <img src="{{about?.photo}}" style="
-    height: 17.4rem;
-" alt="Intro Image">
+            <img :src="about?.photo" style="height: 17.4rem;" alt="Intro Image">
           </figure>
         </div>
         </div>
@@ -83,6 +80,10 @@ body {
   color: #212121; /* Texto preto */
   padding: 40px;
   border-radius: 3px;
+}
+
+.is-subtitle {
+  color: #fff;
 }
 
 .is-2 {

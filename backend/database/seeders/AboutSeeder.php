@@ -14,22 +14,15 @@ class AboutSeeder extends Seeder
 
 
         $about = About::create([
-            'description' => 'Desenvolvedor com experiência em backend e frontend',
-            'back_techs' => 'PHP, Laravel, MySQL',
-            'front_techs' => 'JavaScript, Vue.js, CSS',
+            'description' => 'Criando Soluções Web Inovadoras e Eficientes',
+            'subtitle' => 'Sou um desenvolvedor web com 8 anos de experiência na criação de soluções inovadoras. Minha paixão é transformar ideias em aplicações robustas e intuitivas, proporcionando experiências digitais excepcionais.',
             'user_id' => 1
         ]);
 
         $photo = $about->addMediaFromBase64($base64Image)->usingFileName('foto.webp')->toMediaCollection('photos');
-        $absolutePath = $photo->getPath(); // Ex: /var/www/app/storage/app/public/1/foto.webp
-
-// Manipulando o caminho absoluto para obter o caminho relativo esperado
+        $absolutePath = $photo->getPath();
         $relativePath = str_replace(storage_path('app/public/'), '', $absolutePath);
-
-// Gerando a URL completa
         $about->photo = asset('storage/' . $relativePath);
-
-// Salvando no modelo
         $about->save();
 
 

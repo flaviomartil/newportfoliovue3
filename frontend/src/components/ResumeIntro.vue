@@ -11,49 +11,48 @@
             <div class="title is-4">
               <h3 class="title is-4">Experiência</h3>
             </div>
-            <div class="timeline">
+            <div class="timeline is-centered">
+
+
               <div class="timeline-item"
                    v-for="(experience, index) in resumeData?.experiences"
                    :key="experience.id"
                    :class="{ 'is-left': index % 2 === 0, 'is-right': index % 2 !== 0 }">
+                <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                  <h4 class="title is-5">{{ experience?.company_name }} - {{ experience?.description }}</h4>
-                  <p>
-                    ({{ formatDate(experience?.started_in) }} - {{ experience?.finished_in ? formatDate(experience?.finished_in) : 'Atualmente' }})
-                  </p>
+                  <p class="heading">{{ formatDate(experience?.started_in) }} - {{ experience?.finished_in ? formatDate(experience?.finished_in) : 'Atualmente' }}</p>
+                  <h4 class="title is-5">{{ experience?.company_name }}</h4>
+                  <p>{{ experience?.description }}</p>
                   <p>
                     Tecnologias Utilizadas: <span>{{ experience?.technologies }}</span>
                   </p>
                 </div>
               </div>
+
+
             </div>
           </div>
+
+
           <!-- Education Section -->
-          <div class="content">
-            <div class="columns">
-              <div class="column is-half">
-                <div class="content-left">
-                  <div class="title is-4">
-                    <h3 class="title is-4">Educação</h3>
-                    <h2 v-for="education in resumeData?.components?.education" :key="education.id">
-                      {{ education.subtitle }}
-                    </h2>
-                  </div>
-                </div>
-              </div>
-              <div class="column is-half">
-                <div class="timeline-content"> <!-- Adicione a classe 'timeline-content' à div externa -->
-                  <ul class=" education-timeline"> <!-- Adicione a classe 'education-timeline' -->
-                    <li v-for="education in resumeData?.education" :key="education.id" style="margin-bottom: 20px;">
-            <span>
-              <h4 class="title is-5">{{ education.name }} - {{ education.institution }}</h4>
-              {{ education.description }}<br>
-              ({{ formatDate(education.started_in) }} -
-              {{ education.finished_in ? formatDate(education.finished_in) : 'Atualmente' }})
-              <br><br>
-            </span>
-                    </li>
-                  </ul>
+          <div class="content educationcont">
+            <div class="title is-4">
+              <h3 class="title is-4">Educação</h3>
+            </div>
+            <div class="timeline is-centered">
+              <div class="timeline-item"
+                   v-for="(education, index) in resumeData?.education"
+                   :key="education.id"
+                   :class="{ 'is-left': index % 2 === 0, 'is-right': index % 2 !== 0 }">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4 class="title is-5">{{ education.name }}</h4>
+                  <p class="heading">
+                    {{ formatDate(education.started_in) }} -
+                    {{ education.finished_in ? formatDate(education.finished_in) : 'Atualmente' }}
+                  </p>
+                  <h2>{{ education.subtitle }}</h2>
+                  <p>{{ education.description }}</p>
                 </div>
               </div>
             </div>
@@ -314,4 +313,9 @@ h4 {
 .owl-carousel .owl-nav .owl-next {
   display: none !important;
 }
+.educationcont {
+  margin-left: 4.1%;
+}
+
+
 </style>

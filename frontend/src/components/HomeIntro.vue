@@ -17,10 +17,9 @@
         <!-- Coluna de imagem -->
         <div class="column is-4-desktop is-12-tablet image-column">
           <figure class="image-right">
-            <img src="../assets/images/intro-image.png" alt="Intro Image">
+            <img :src="resumeData?.personal_info.avatar" style="height: 17.4rem;" alt="Intro Image">
           </figure>
         </div>
-
       </div>
     </div>
   </section>
