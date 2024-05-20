@@ -235,7 +235,6 @@ h4 {
   color: #444; /* Define a cor do texto para garantir que seja visível */
   position: relative;
   min-height: 7.7rem;
-  max-height: 10.9rem;
 }
 
 .timeline-content h4 {
