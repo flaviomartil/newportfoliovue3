@@ -45,6 +45,7 @@ export default {
       [key: string]: any;
     }
 
+
     interface ResumeData {
       experiences: any;
       education: any;
@@ -58,7 +59,9 @@ export default {
         education: Component[];
         projects: Component[];
         skills: Component[];
+        personalInfo: Component[];
       };
+
     }
 
     const userData = ref<any>(null);
@@ -85,12 +88,20 @@ export default {
               skills: components.filter((component: Component) => component.component === 'skills')
             };
 
+            const filteredSocial = [
+              { type: 'linkedin', url: data.personal_info.linkedin },
+              { type: 'instagram', url: data.personal_info.instagram },
+              { type: 'facebook', url: data.personal_info.facebook },
+              { type: 'whatsapp', url: data.personal_info.whatsapp },
+              { type: 'email', url: 'mailto:' + data.personal_info.email }
+            ];
+
             resumeData.value = {
               experiences: data.experiences,
               education: data.education,
               components: filteredComponents,
               skills: data.skills,
-              contact: data.contact
+              contact: filteredSocial
             };
 
             projectsData.value = data.projects;

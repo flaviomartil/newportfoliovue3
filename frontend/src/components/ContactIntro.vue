@@ -7,17 +7,13 @@
             <h3 class="title is-3">Me contate</h3>
             <h2 class="subtitle is-created" v-for="contact in resumeData?.components?.contact" :key="contact.id">{{ contact.subtitle }}</h2>
             <div class="social-links">
-              <a href="#" class="icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="icon">
-                <i class="fab fa-dribbble"></i>
-              </a>
-              <a href="#" class="icon">
-                <i class="fab fa-google"></i>
+
+              <a v-for="(contact, index) in resumeData?.contact" :key="index" :href="contact.url" class="icon">
+                <i class="fab fa-facebook-f" v-if="contact.type === 'facebook'"></i>
+                <i class="fab fa-instagram" v-if="contact.type === 'instagram'"></i>
+                <i class="fab fa-linkedin-in" v-if="contact.type === 'linkedin'"></i>
+                <i class="fab fa-whatsapp" v-if="contact.type === 'whatsapp'"></i>
+                <i class="fas fa-envelope" v-if="contact.type === 'email'"></i>
               </a>
             </div>
           </div>

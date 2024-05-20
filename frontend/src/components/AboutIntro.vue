@@ -14,7 +14,7 @@
           </div>
         <div class="column is-4-desktop is-12-tablet">
           <figure class="image">
-            <img src="../assets/images/about.png" style="
+            <img src="{{about?.photo}}" style="
     height: 17.4rem;
 " alt="Intro Image">
           </figure>
