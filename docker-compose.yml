@@ -10,17 +10,30 @@ volumes:
 services:
     app:
         build:
-            context: ./docker
+            context: ./backend/docker
             dockerfile: Dockerfile
         container_name: flavio-resume-app
         restart: unless-stopped
         working_dir: /var/www
         volumes:
-            - ./:/var/www
+            - ./backend:/var/www
         networks:
             - flavio-resume-network
         env_file:
             - ./.env
+
+    frontend:
+        image: node:14-alpine
+        container_name: flavio-resume-frontend
+        working_dir: /app
+        volumes:
+            - ./frontend:/app
+            - /app/node_modules
+        ports:
+            - "9087:8080"  # Puerto local frente puerto en el contenedor
+        command: sh -c "npm install && npm run serve"
+        networks:
+            - flavio-resume-network
 
     postgres:
         image: postgres:13.4
@@ -37,15 +50,14 @@ services:
             - "5432:5432"
         restart: unless-stopped
 
-    nginx:
+    nginx-backend:
         image: nginx:stable-alpine
-        container_name: flavio-resume-nginx
+        container_name: flavio-resume-nginx-backend
         ports:
-            - "8082:80"
-            - "444:443"
+            - "8087:80"  # Puerto local frente puerto en el contenedor
         volumes:
-            - ./docker/nginx:/etc/nginx/conf.d
-            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./backend/docker/nginx:/etc/nginx/conf.d
+            - ./backend/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on:
             - app
         networks:
@@ -63,4 +75,3 @@ services:
         networks:
             - flavio-resume-network
         restart: unless-stopped
- 
