@@ -30,7 +30,7 @@ services:
             - ./frontend:/app
             - /app/node_modules
         ports:
-            - "9087:9087"  # Mapeando a porta local para a porta no contêiner
+            - "9087:9087"
         command: sh -c "npm install && npm run serve -- --host 0.0.0.0 --port 9087"
         networks:
             - flavio-resume-network
@@ -54,8 +54,9 @@ services:
         image: nginx:stable-alpine
         container_name: flavio-resume-nginx-backend
         ports:
-            - "8087:80"  # Puerto local frente puerto en el contenedor
+            - "8087:80"
         volumes:
+            - ./backend:/var/www
             - ./backend/docker/nginx:/etc/nginx/conf.d
             - ./backend/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on:
