@@ -10,13 +10,13 @@ class PersonalInfoSeeder extends Seeder
     public function run()
     {
         PersonalInfo::create([
-            'name' => 'John Doe',
+            'name' => 'Flávio Martil',
             'avatar' => null,
-            'instagram' => '@johndoe',
-            'facebook' => 'john.doe',
-            'whatsapp' => '+1234567890',
-            'linkedin' => 'john-doe',
-            'email' => 'john@example.com',
+            'instagram' => 'https://instagram.com/flaviowmartil/',
+            'facebook' => 'https://fb.com/flaviomartil/',
+            'whatsapp' => 'https://api.whatsapp.com/send?phone=5517988056558&text=Olá%2C%20vim%20pelo%20portfolio',
+            'linkedin' => 'https://www.linkedin.com/in/flavio-martil',
+            'email' => 'flaviomartil5@gmail.com',
             'user_id' => 1
         ]);
     }
