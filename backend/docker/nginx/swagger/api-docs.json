@@ -1,0 +1,666 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation Flavio Martil Portfolio",
+        "version": "1.0.0",
+        "description": "API documentation for crud operations on Flavio Martil Portfolio"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8082",
+            "description": "Portfolio LocalHost"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "paths": {
+        "/api/skills": {
+            "get": {
+                "summary": "Get All Skills",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of skills"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Skill",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "progress": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully created skill"
+                    }
+                }
+            }
+        },
+        "/api/skills/{id}": {
+            "get": {
+                "summary": "Get Skill by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved skill"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Skill",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "progress": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated skill"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Skill",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted skill"
+                    }
+                }
+            }
+        },
+        "/api/projects": {
+            "get": {
+                "summary": "Get All Projects",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of projects"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Project",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "photo": { "type": "string" },
+                                    "link": { "type": "string" },
+                                    "date": { "type": "string" },
+                                    "user_id": { "type": "integer" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully created project"
+                    }
+                }
+            }
+        },
+        "/api/projects/{id}": {
+            "get": {
+                "summary": "Get Project by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved project"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Project",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "photo": { "type": "string" },
+                                    "link": { "type": "string" },
+                                    "date": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated project"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Project",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted project"
+                    }
+                }
+            }
+        },
+        "/api/experiences": {
+            "get": {
+                "summary": "Get All Experiences",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of experiences"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Experience",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "description": { "type": "string" },
+                                    "company_name": { "type": "string" },
+                                    "started_in": { "type": "string" },
+                                    "finished_in": { "type": "string" },
+                                    "user_id": { "type": "integer" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully created experience"
+                    }
+                }
+            }
+        },
+        "/api/experiences/{id}": {
+            "get": {
+                "summary": "Get Experience by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved experience"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Experience",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "description": { "type": "string" },
+                                    "company_name": { "type": "string" },
+                                    "started_in": { "type": "string" },
+                                    "finished_in": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated experience"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Experience",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted experience"
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "post": {
+                "summary": "Create User",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "email": { "type": "string" },
+                                    "password": { "type": "string" },
+                                    "password_confirmation": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully created user"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Get All Users",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of users"
+                    }
+                }
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "summary": "Get Single User",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved user"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update User",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "email": { "type": "string" },
+                                    "password": { "type": "string" },
+                                    "password_confirmation": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated user"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete User",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted user"
+                    }
+                }
+            }
+        },
+        "/api/personal-info": {
+            "get": {
+                "summary": "Get All Personal Info",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of personal info"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Personal Info",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "avatar": { "type": "string" },
+                                    "instagram": { "type": "string" },
+                                    "facebook": { "type": "string" },
+                                    "whatsapp": { "type": "string" },
+                                    "linkedin": { "type": "string" },
+                                    "email": { "type": "string" },
+                                    "user_id": { "type": "integer" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully created personal info"
+                    }
+                }
+            }
+        },
+        "/api/personal-info/{id}": {
+            "get": {
+                "summary": "Get Personal Info by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved personal info"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Personal Info",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "avatar": { "type": "string" },
+                                    "instagram": { "type": "string" },
+                                    "facebook": { "type": "string" },
+                                    "whatsapp": { "type": "string" },
+                                    "linkedin": { "type": "string" },
+                                    "email": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated personal info"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Personal Info",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted personal info"
+                    }
+                }
+            }
+        },
+        "/api/education": {
+            "get": {
+                "summary": "Get All Education Records",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of education records"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create Education Record",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "started_in": { "type": "string" },
+                                    "finished_in": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successfully created education record"
+                    }
+                }
+            }
+        },
+        "/api/education/{id}": {
+            "get": {
+                "summary": "Get Education Record by ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved education record"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update Education Record",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "started_in": { "type": "string" },
+                                    "finished_in": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated education record"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete Education Record",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": { "type": "string" }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successfully deleted education record"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "summary": "User Login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": { "type": "string" },
+                                    "password": { "type": "string" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully logged in"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "summary": "User Logout",
+                "responses": {
+                    "200": {
+                        "description": "Successfully logged out"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": "Operations about user"
+        }
+    ]
+}
