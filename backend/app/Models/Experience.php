@@ -14,5 +14,10 @@ class Experience extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function scopeOrderByDateDesc($query)
+    {
+        return $query->orderBy('started_in', 'desc');
+    }
+
     protected $table = 'experiences';
 }

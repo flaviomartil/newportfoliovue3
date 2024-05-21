@@ -24,7 +24,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $user = User::with('personalInfo', 'abouts', 'experiences', 'education', 'projects','skills','components')->first();
+        $user = User::with('personalInfo', 'abouts', 'experiences', 'education', 'projects', 'skills', 'components')->first();
         $user->components = $user->componentsGrouped;
 
 

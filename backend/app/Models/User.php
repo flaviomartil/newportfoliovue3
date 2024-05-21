@@ -30,13 +30,14 @@ class User extends Authenticatable implements HasMedia
 
     public function experiences()
     {
-        return $this->hasMany(Experience::class);
+        return $this->hasMany(Experience::class)->orderByDateDesc();
     }
 
     public function education()
     {
-        return $this->hasMany(Education::class);
+        return $this->hasMany(Education::class)->orderByStartedInDesc();
     }
+
 
     public function skills()
     {
@@ -56,6 +57,6 @@ class User extends Authenticatable implements HasMedia
     }
     public function projects()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class)->orderByDateDesc();
     }
 }

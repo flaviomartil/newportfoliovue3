@@ -13,5 +13,10 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function scopeOrderByDateDesc($query)
+    {
+        return $query->orderBy('date', 'desc');
+    }
+
     protected $table = 'projects';
 }

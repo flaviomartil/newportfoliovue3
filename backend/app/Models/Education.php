@@ -35,5 +35,10 @@ class Education extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function scopeOrderByStartedInDesc($query)
+    {
+        return $query->orderBy('started_in', 'desc');
+    }
+
     protected $table = 'education';
 }

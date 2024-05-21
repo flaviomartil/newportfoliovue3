@@ -58,5 +58,45 @@ class ProjectSeeder extends Seeder
             'date' => '2022-01-01',
             'user_id' => 1
         ]);
+
+        Project::create([
+            'name' => 'Painel para mecanica Fivem',
+            'description' => 'Painel para gerenciamento de fluxo de caixa e serviços de uma mecanica de fivem',
+            'photo' => env('APP_URL') . '/storage/img/painelmecanica.jpg',
+            'category' => 'web',
+            'link' => 'https://github.com/flaviomartil/painelMecanica',
+            'date' => '2023-05-05',
+            'user_id' => 1
+        ]);
+
+        Project::create([
+            'name' => 'AluraTracker',
+            'description' => 'Sistema para gestão de atividades com cronometro feito no curso da alura em vue.',
+            'photo' => env('APP_URL') . '/storage/img/aluratracker.png',
+            'category' => 'web',
+            'link' => 'https://github.com/flaviomartil/alura-tracker',
+            'date' => '2022-12-12',
+            'user_id' => 1
+        ]);
+
+        Project::create([
+            'name' => 'Encurtador de links com parametros - Yii2',
+            'description' => 'Encurtador que permite compartilhar links com parâmetros e permissões, garantindo que o destinatário veja o mesmo conteúdo.',
+            'photo' => env('APP_URL') . '/storage/img/encurtador.jpg',
+            'category' => 'web',
+            'link' => 'https://github.com/flaviomartil/yii2-url-shortener-params-multi-tenant',
+            'date' => '2023-02-12',
+            'user_id' => 1
+        ]);
+
+        Project::create([
+            'name' => 'Sistema de pizzaria em C',
+            'description' => 'Projeto feito durante faculdade em C, com cadastro de clientes, produtos, pedidos e relatórios.',
+            'photo' => env('APP_URL') . '/storage/img/pizzariac.jpg',
+            'category' => 'desktop',
+            'link' => 'https://github.com/flaviomartil/Unip/tree/master',
+            'date' => '2019-01-01',
+            'user_id' => 1
+        ]);
     }
 }
