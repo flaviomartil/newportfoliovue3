@@ -13,6 +13,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name', 255);
             $table->string('description', 255);
+            $table->string('category', 255);
             $table->string('photo')->nullable();
             $table->string('link')->nullable();
             $table->date('date');

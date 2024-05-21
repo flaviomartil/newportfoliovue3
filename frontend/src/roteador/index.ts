@@ -1,7 +1,4 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import FormularioProjeto from "@/views/Projetos/FormularioProjeto.vue";
-import projetosTracker from "@/views/ProjetosTracker.vue";
-import ListaProjetos from "@/views/Projetos/ListaProjetos.vue";
 import Home from "@/views/Home.vue";
 
 const rotas: RouteRecordRaw[] = [
@@ -10,28 +7,7 @@ const rotas: RouteRecordRaw[] = [
     name: "Home",
       component: Home,
   },
-  {
-    path: "/projetos",
-    component: projetosTracker,
-    children: [
-      {
-        path: "",
-        name: "Projetos",
-        component: ListaProjetos,
-      },
-      {
-        path: "create",
-        name: "Novo projeto",
-        component: FormularioProjeto,
-      },
-      {
-        path: ":id",
-        name: "Editar projeto",
-        component: FormularioProjeto,
-        props: true,
-      },
-    ],
-  },
+ 
 ];
 
 const roteador = createRouter({

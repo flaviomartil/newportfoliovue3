@@ -6,19 +6,18 @@
         <!-- Coluna de texto -->
         <div class="column is-8-desktop is-12-tablet">
           <div class="content">
-              <h3 class="title is-3">Sobre mim</h3>
-              <h3 class="title is-2">{{ about?.description }}</h3>
-              <h4 class="is-subtitle"> {{ about?.subtitle }}</h4>
-            </div>
+            <h3 class="title is-3 " style="color: #00d1b2;">Sobre Mim</h3>
+            <h3 class="title is-2" style="color: #fff;">{{ about?.description }}</h3>
+            <h4 class="is-subtitle" style="color: #fff;">{{ about?.subtitle }}</h4>
           </div>
+        </div>
         <div class="column is-4-desktop is-12-tablet">
           <figure class="image">
-            <img :src="about?.photo" style="height: 17.4rem;" alt="Intro Image">
+            <img :src="about?.photo" style="height: 17.4rem; border-radius: 15px;" alt="Imagem de Introdução">
           </figure>
         </div>
-        </div>
       </div>
-
+    </div>
   </section>
 </template>
 
@@ -36,68 +35,52 @@ export default {
 
 <style scoped>
 /* Estilos Gerais */
-
 .about{
-  padding: 27px 0;
-  background: #262626;
-}
-
-figure {
-  padding-right: 2.0625rem;
+  background: #1e1e1e; /* Fundo escuro */
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  background: #fafafa; /* Fundo branco */
-  color: #212121; /* Texto preto */
+  background: #1e1e1e; /* Fundo escuro */
+  color: #fff; /* Texto branco */
   font-size: 14px;
   line-height: 22px;
 }
 
 .about .content {
-  padding: 40px;
-  border-radius: 3px;
+  padding: 20px 40px;
+  border-radius: 10px; /* Arredondar bordas */
+  background: #292929; /* Fundo mais escuro */
 }
 
 .is-3 {
   font-weight: 700;
-  color: #90ee90;
+  color: #00d1b2; /* Verde água */
 }
 
-.content h3:not(:first-child) {
-  margin-top: 0.4333em;
-}
-
-.about .content-left .content h2 {
+.is-2 {
+  color: #fff; /* Texto branco */
   font-size: 50px;
   font-weight: 900;
   margin-bottom: 30px;
+}
+
+.is-subtitle {
+  color: #fff; /* Texto branco */
 }
 
 /* Estilos do Componente About */
 .about .box-content {
-  background: #fff; /* Fundo branco */
-  color: #212121; /* Texto preto */
-  padding: 40px;
-  border-radius: 3px;
+  background: #1e1e1e; /* Fundo escuro */
+  color: #fff; /* Texto branco */
+  padding: 20px 40px;
+  border-radius: 10px; /* Arredondar bordas */
 }
 
-.is-subtitle {
-  color: #fff;
+.image img {
+
+  border-radius: 15px; /* Arredondar a imagem */
 }
 
-.is-2 {
-  color: #fff;
-  font-size: 50px;
-  font-weight: 900;
-  margin-bottom: 30px;
-}
 
-.about .content-right {
-  background: url(../assets/images/about.png);
-  background-size: cover;
-  background-position: 50% 100%;
-  height: 100%;
-  border-radius: 0 3px 3px 0;
-}
 </style>

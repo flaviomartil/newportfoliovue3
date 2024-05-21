@@ -4,8 +4,8 @@
       <div class="box">
         <div class="columns">
           <div class="column is-half">
-            <h3 class="title is-3">Me contate</h3>
-            <h2 class="subtitle is-created" v-for="contact in resumeData?.components?.contact" :key="contact.id">{{ contact.subtitle }}</h2>
+            <h3 class="title is-3" style="color: #00d1b2;">Me contate</h3>
+            <h2 class="subtitle is-created" v-for="contact in resumeData?.components?.contact" :key="contact.id" style="color: #fff;">{{ contact.subtitle }}</h2>
             <div class="social-links">
 
               <a v-for="(contact, index) in resumeData?.contact" :key="index" :href="contact.url" class="icon">
@@ -23,7 +23,7 @@
                 <div class="field-body">
                   <div class="field">
                     <p class="control is-expanded">
-                      <input class="input color form-control" type="text" placeholder="Nome" name="form-name">
+                      <input class="input form-control" type="text" placeholder="Nome" name="form-name">
                     </p>
                   </div>
                   <div class="field">
@@ -52,8 +52,8 @@
                   <textarea class="textarea form-control" rows="5" placeholder="Mensagem" name="form-message"></textarea>
                 </p>
               </div>
-              <p class="control">
-                <button class="button is-primary">Enviar mensagem</button>
+              <p class="control buttons">
+                <button class="button is-white is-outlined">Enviar mensagem</button>
               </p>
             </form>
           </div>
@@ -83,13 +83,14 @@ export default {
   line-height: 1.5;
   font-family: 'Roboto', sans-serif;
 }
+
 .form-control {
   border: 0;
   border-bottom: 1px solid #525252;
   border-radius: 0;
   background: transparent;
   padding: 0;
-  color: #5C6369;
+  color: #fafafa;
 }
 
 .form-control:hover {
@@ -102,43 +103,21 @@ export default {
   border-color: #90ee90;
 }
 
-.form-control:hover {
-  border-color: #90ee90 !important;
-}
-
 #contact {
-  padding: 27px 0;
-  background: #262626;
+  background: #1e1e1e;
 }
 
 #contact .box {
   padding: 40px;
-  border-radius: 3px;
-  background: #262626;
-}
-
-#contact .content {
-  padding: 40px;
-  border-radius: 3px;
-}
-
-.section-title h3 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #90ee90;
-  margin: auto;
+  border-radius: 10px;
+  background: #292929;
 }
 
 .columns h3 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #90ee90;
+  color: #00d1b2;
   margin: auto;
-}
-
-.section-title h3 {
-  font-weight: 700;
-  color: #90ee90;
 }
 
 #contact .content .subtitle {
@@ -162,25 +141,16 @@ export default {
   margin-bottom: 20px;
 }
 
-#contact .intro-content .intro-caption h2 {
-  font-size: 70px;
-  font-weight: 900;
+.buttons .button {
+  border-color: #00d1b2;
+  color: #00d1b2;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-#contact .content .button {
-  background-image: linear-gradient(to left, #006400, #004d00);
+.buttons .button:hover,
+.buttons .button.is-active {
+  background-color: #00d1b2;
   color: #fff;
-  border: 0;
-  border-radius: 2px;
-  padding: 13px 20px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  overflow: hidden;
-}
-
-.title, .subtitle {
-  color: white;
 }
 
 .social-links .icon {
@@ -198,11 +168,7 @@ export default {
 }
 
 .social-links .icon:hover i {
-  color: #525252;
-}
-
-.timeline-content .title-is-5 {
-  margin-top: 0.3rem;
+  color: #00d1b2;
 }
 
 .field .input, .field .textarea {
@@ -211,7 +177,11 @@ export default {
 }
 
 .field .input:focus, .field .textarea:focus {
-  border-color: #90ee90;
+  border-color: #00d1b2;
+}
+
+.title:not(.is-spaced)+.subtitle {
+  margin-top: 0rem !important;
 }
 
 .button.is-link {
@@ -222,22 +192,6 @@ export default {
   font-size: 50px;
   font-weight: 900;
   margin-bottom: 50px;
+  color: #fafafa;
 }
-
-.title:not(.is-spaced) + .subtitle {
-  margin-top: 0rem !important;
-}
-
-.control .button {
-  background-image: linear-gradient(to left, #006400, #004d00);
-  color: #fff;
-  border: 0;
-  border-radius: 2px;
-  padding: 13px 20px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  overflow: hidden;
-}
-
 </style>

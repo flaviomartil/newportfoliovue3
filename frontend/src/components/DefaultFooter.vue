@@ -16,21 +16,23 @@ export default {
 
 <style scoped>
 .box-content {
-  background: #262626;
+  background: #1e1e1e;
   padding: 40px;
-  border-radius: 3px;
+  border-radius: 12px;
 }
 
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 27px auto; /* Se a sua navbar está dentro de um container, ajuste a margem */
-  background: #262626;
+  margin: 27px auto;
+  background: #1e1e1e;
   color: #fff;
   padding: 8px 40px;
   transition: all .5s ease;
-  width: 100%; /* Descomente esta linha se a navbar não estiver esticando pela largura total */
+  width: 100%;
+  box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 }
 
 body {

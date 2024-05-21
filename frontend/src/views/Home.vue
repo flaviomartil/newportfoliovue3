@@ -8,7 +8,7 @@
   <div class="component-spacing"></div>
   <ResumeIntro :resumeData="resumeData"></ResumeIntro>
   <div class="component-spacing"></div>
-  <PortfolioIntro :projects=" projectsData"></PortfolioIntro>
+  <PortfolioIntro :resumeData=" resumeData"></PortfolioIntro>
   <div class="component-spacing"></div>
   <contact-intro :resumeData="resumeData"></contact-intro>
   <div class="component-spacing"></div>
@@ -66,8 +66,7 @@ export default {
 
     const userData = ref<any>(null);
     const aboutsData = ref<any>(null);
-    const resumeData = ref<{ experiences: any; education: any; components: any, skills:any, contact:any,personal_info: any  } | null>(null);
-    const projectsData = ref<any>(null);
+    const resumeData = ref<{ experiences: any; education: any; components: any, skills:any, contact:any,personal_info: any, projects: any } | null>(null);
 
     const fetchUserData = () => {
       apiClient.get('/users')
@@ -102,10 +101,10 @@ export default {
               components: filteredComponents,
               skills: data.skills,
               contact: filteredSocial,
-              personal_info: data.personal_info
+              personal_info: data.personal_info,
+              projects: data.projects
             };
 
-            projectsData.value = data.projects;
           })
           .catch((error) => {
             console.log(error);
@@ -121,7 +120,6 @@ export default {
       userData,
       aboutsData,
       resumeData,
-      projectsData
     };
   },
 };

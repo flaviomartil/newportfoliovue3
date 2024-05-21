@@ -112,17 +112,19 @@ a.navbar-item:hover {
 /* Estilo scoped específico da navbar */
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background: #262626;
+  background: #1e1e1e;
   color: #fff;
   padding: 8px 40px;
   transition: all .5s ease;
-  width: 100%; /* Descomente esta linha se a navbar não estiver esticando pela largura total */
+  width: 100%;
+  box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 }
 .navbar .navbar-brand h2 {
   font-weight: 900;
-  background: -webkit-linear-gradient(right, #004d00, #008000);
+  background:  #00d1b2;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 36px /* Exemplo de tamanho de fonte ajustado */
@@ -145,7 +147,7 @@ a.navbar-item:hover {
   left: 0;
   right: 0;
   z-index: 999;
-  background: #262626;
+  background: #1e1e1e;
   margin-top: 0;
   box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.2);
   transition: all .5s ease;
@@ -161,6 +163,7 @@ a.navbar-item:hover {
 }
 
 .is-expanded {
+  background: #1e1e1e;
   position: fixed;
   top: 0;
   left: 0;
@@ -168,10 +171,23 @@ a.navbar-item:hover {
   margin: 0px auto;
   z-index: 10; /* Garante que a navbar esteja acima do conteúdo da página */
 }
+
+.navbar .navbar-menu .navbar-end .navbar-item:hover {
+  color: #00d1b2;
+}
 /* Responsive Navbar */
 @media (max-width: 768px) {
   .navbar {
     padding: 8px 30px;
+  }
+  .navbar.is-expanded .navbar-menu {
+    display: block;
+    background: #292929;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    z-index: 1;
   }
   .navbar .navbar-nav .nav-item .nav-link {
     padding-left: 0;
