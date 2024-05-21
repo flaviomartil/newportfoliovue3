@@ -181,6 +181,30 @@ h4 {
   font-size: 30px;
   color: #fff;
 }
+@media screen and (max-width: 768px) {
+  .timeline-item {
+    width: 100% !important;
+    text-align: center;
+    float: none;
+    clear: none;
+  }
+
+  .timeline-content p {
+    margin-bottom: 5px;
+    color: #555;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .timeline-item::after {
+    display: none;
+  }
+
+  .timeline::after {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 769px), print
 .column.is-half, .column.is-half-tablet {
   flex: none;
@@ -245,6 +269,7 @@ h4 {
 .timeline-content p {
   margin-bottom: 5px;
   color: #555; /* Garantir que o texto do parágrafo seja visível */
+  word-wrap: break-word;
 }
 
 /* Central Indicator Circle */
