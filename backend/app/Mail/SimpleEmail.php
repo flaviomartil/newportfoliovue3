@@ -10,15 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class SimpleEmail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $details;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($details)
     {
-        $this->data = $data;
+        $this->details = $details;
     }
 
     /**
@@ -29,8 +30,8 @@ class SimpleEmail extends Mailable
     public function build()
     {
         return $this->view('emails.email')
-            ->with('data', $this->data)
+            ->with('data', $this->details)
             ->from('no-reply@example.com')
-            ->subject($this->data['subject']);
+            ->subject($this->details['subject']);
     }
 }

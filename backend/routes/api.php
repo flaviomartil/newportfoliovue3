@@ -9,6 +9,7 @@ use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\ContactFormController;
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
@@ -26,6 +27,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::delete('users/{user}', [PortfolioController::class, 'destroy']);
 });
 
+Route::post('/contact-form', [ContactFormController::class, 'store']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('users', [PortfolioController::class, 'index']);
 

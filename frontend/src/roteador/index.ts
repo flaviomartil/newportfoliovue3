@@ -7,7 +7,7 @@ const rotas: RouteRecordRaw[] = [
     name: "Home",
       component: Home,
   },
- 
+
 ];
 
 const roteador = createRouter({

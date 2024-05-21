@@ -18,17 +18,17 @@
             </div>
           </div>
           <div class="column is-half">
-            <form action="contact-form.php" class="contact-form" id="contact-form" method="post">
+            <form @submit.prevent="submitForm" class="contact-form" id="contact-form">
               <div class="field is-horizontal">
                 <div class="field-body">
                   <div class="field">
                     <p class="control is-expanded">
-                      <input class="input form-control" type="text" placeholder="Nome" name="form-name">
+                      <input class="input form-control" type="text" placeholder="Nome" name="form-name" v-model="form.name">
                     </p>
                   </div>
                   <div class="field">
                     <p class="control is-expanded">
-                      <input class="input form-control" type="text" placeholder="Sobrenome" name="form-last-name">
+                      <input class="input form-control" type="text" placeholder="Sobrenome" name="form-last-name" v-model="form.lastName">
                     </p>
                   </div>
                 </div>
@@ -37,19 +37,19 @@
                 <div class="field-body">
                   <div class="field is-expanded">
                     <p class="control is-expanded">
-                      <input class="input form-control" type="email" placeholder="Email" name="form-email">
+                      <input class="input form-control" type="email" placeholder="Email" name="form-email" v-model="form.email">
                     </p>
                   </div>
                   <div class="field is-expanded">
                     <p class="control is-expanded">
-                      <input class="input form-control" type="text" placeholder="Assunto" name="form-subject">
+                      <input class="input form-control" type="text" placeholder="Assunto" name="form-subject" v-model="form.subject">
                     </p>
                   </div>
                 </div>
               </div>
               <div class="field">
                 <p class="control">
-                  <textarea class="textarea form-control" rows="5" placeholder="Mensagem" name="form-message"></textarea>
+                  <textarea class="textarea form-control" rows="5" placeholder="Mensagem" name="form-message" v-model="form.message"></textarea>
                 </p>
               </div>
               <p class="control buttons">
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import apiClient from '@/axios-config';
 export default {
   name: 'ContactIntro',
   props: {
@@ -72,6 +73,27 @@ export default {
       required: true
     }
   },
+    data() {
+      return {
+        form: {
+          name: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          message: ''
+        }
+      };
+    },
+    methods: {
+      async submitForm() {
+        try {
+          const response = await apiClient.post('/contact-form', this.form);
+          console.log('Formulário enviado com sucesso:', response.data);
+        } catch (error) {
+          console.error('Erro ao enviar o formulário:', error);
+        }
+      }
+    }
 };
 </script>
 
