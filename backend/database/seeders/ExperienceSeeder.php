@@ -12,6 +12,14 @@ class ExperienceSeeder extends Seeder
         $experiences = [
             [
                 'description' => 'Desenvolvedor FullStack',
+                'company_name' => 'Movida',
+                'started_in' => '2024-01-01',
+                'finished_in' => '2024-06-05',
+                'technologies' => ['PHP', 'RABBITMQ', 'POSTGRESQL', 'LARAVEL', 'ANGULAR','JENKINS'],
+                'user_id' => 1
+            ],
+            [
+                'description' => 'Desenvolvedor FullStack',
                 'company_name' => 'Executiva',
                 'started_in' => '2022-01-01',
                 'finished_in' => '2023-12-31',
