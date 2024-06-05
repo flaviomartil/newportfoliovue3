@@ -14,7 +14,6 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('avatar', 255)->nullable();
             $table->string('instagram', 255)->nullable();
-            $table->string('facebook', 255)->nullable();
             $table->string('whatsapp', 255)->nullable();
             $table->string('linkedin', 255)->nullable();
             $table->string('email', 255);
