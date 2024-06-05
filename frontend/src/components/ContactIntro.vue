@@ -9,7 +9,6 @@
             <div class="social-links">
 
               <a v-for="(contact, index) in resumeData?.contact" :key="index" :href="contact.url" class="icon">
-                <i class="fab fa-facebook-f" v-if="contact.type === 'facebook'"></i>
                 <i class="fab fa-instagram" v-if="contact.type === 'instagram'"></i>
                 <i class="fab fa-linkedin-in" v-if="contact.type === 'linkedin'"></i>
                 <i class="fab fa-whatsapp" v-if="contact.type === 'whatsapp'"></i>
