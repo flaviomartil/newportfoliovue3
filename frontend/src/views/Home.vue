@@ -90,7 +90,6 @@ export default {
             const filteredSocial = [
               { type: 'linkedin', url: data.personal_info.linkedin },
               { type: 'instagram', url: data.personal_info.instagram },
-              { type: 'facebook', url: data.personal_info.facebook },
               { type: 'whatsapp', url: data.personal_info.whatsapp },
               { type: 'email', url: 'mailto:' + data.personal_info.email }
             ];
